@@ -1,8 +1,12 @@
 - clean: ['~']
 
+- shell:
+    - mkdir -p ~/.config/nvim/autoload
+    - curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
 - link:
     ~/.gitconfig: gitconfig
-    ~/.config/nvim/pufflehuff: pufflehuff
+    ~/.config/nvim/pufflehuff: neovim/pufflehuff
     ~/.config/nvim/init.vim: init.vim
 
 
