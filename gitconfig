@@ -1,8 +1,6 @@
 [user]
 	name = Dylan McDiarmid
 	email = dylan@littleloops.io
-[credential]
-	helper = osxkeychain
 [push]
 	default = simple
 [core]
