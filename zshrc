@@ -36,9 +36,6 @@ fi
 # Say how long a command took, if it took more than 10 seconds
 export REPORTTIME=10
 
-# Node Version Manager setup
-export NVM_DIR=~/.nvm
-[ -s "\$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
 
 ### OPTIONS ###
 # Option list is at http://linux.die.net/man/1/zshoptions or man zshoptions
@@ -191,7 +188,7 @@ unsetopt beep
 # https://github.com/unixorn/awesome-zsh-plugins
 
 # # Setup zplug
-# source ~/.zplug/init.zsh
+source ~/.zplug/init.zsh
 
 ## Git ##
 # Adds update_branch and merge_branch commands for git
@@ -239,6 +236,7 @@ source ~/.config/zsh/pufflehuff.zsh-theme
 
 # VTE setup should be run each time a shell loads, for better terminal compatibility (terminix)
 # source /etc/profile.d/vte.sh
-# Something has an unclosed underline in the initial prompt.
-# This is a hacky way of resetting it instead of tracking it down.
-clear
+
+# Node Version Manager setup
+export NVM_DIR=~/.nvm
+. "$NVM_DIR/nvm.sh"
