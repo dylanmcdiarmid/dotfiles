@@ -120,6 +120,15 @@ let s:gb.faded_purple   = ['#b994d0', 140]
 let s:gb.faded_cyan     = ['#88bfbd', 109]
 let s:gb.faded_orange   = ['#d2ab6d', 179]
 
+let s:gb.dark_red       = ['#4C010B', 52]
+let s:gb.dark_pink      = ['#ef0ba1', 199]
+let s:gb.dark_green     = ['#2e4c01', 58]
+let s:gb.dark_yellow    = ['#8a8f00', 100]
+let s:gb.dark_yg        = ['#8a8f00', 100]
+let s:gb.dark_blue      = ['#16275a', 17]
+let s:gb.dark_purple    = ['#39165a', 53]
+let s:gb.dark_cyan      = ['#11554a', 23]
+
 let s:gb.dark_orange = ['#aa5901', 130]
 let s:gb.dark_yellow = ['#9b9d04', 142]
 
@@ -430,11 +439,11 @@ call s:HL('PufflehuffCyanSign', s:cyan, s:sign_column, s:invert_signs)
 call s:HL('Normal', s:fg0, s:bg0)
 
 " Correct background
-if s:is_dark
-  set background=dark
-else
-  set background=light
-endif
+" if s:is_dark
+"   set background=dark
+" else
+"   set background=light
+" endif
 
 if version >= 700
   " Screen line that the cursor is

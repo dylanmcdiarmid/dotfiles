@@ -1,0 +1,103 @@
+[options]
+scroll_on_output = false
+scroll_on_keystroke = true
+audible_bell = false
+mouse_autohide = false
+allow_bold = true
+dynamic_title = true
+urgent_on_bell = true
+clickable_url = true
+# font = Roboto Mono for Powerline 12
+# font = Ubuntu Mono derivative Powerline 12
+# font = Source Code Pro for Powerline 12
+font = Inconsolata-dz for Powerline 12
+scrollback_lines = 20000
+search_wrap = true
+#icon_name = terminal
+#geometry = 640x480
+
+# "system", "on" or "off"
+cursor_blink = system
+
+# "block", "underline" or "ibeam"
+cursor_shape = block
+
+# $BROWSER is used by default if set, with xdg-open as a fallback
+#browser = xdg-open
+
+# set size hints for the window
+#size_hints = false
+
+# Hide links that are no longer valid in url select overlay mode
+filter_unmatched_urls = true
+
+# emit escape sequences for extra modified keys
+#modify_other_keys = false
+
+
+[colors]
+# special
+foreground      = #f3f4e9
+foreground_bold = #f3f4e9
+cursor          = #f3f4e9
+background      = #231f25
+
+# black
+color0  = #1b171d
+color8  = #373b41
+
+# red
+color1  = #ff3661
+color9  = #db566c
+# dark red
+color124 = #4C010B
+
+# green
+color2  = #b1f16d
+color10 = #adcb8e
+# dark green
+color58 = #2e4c01
+
+# yellow
+color3  = #f5ab53
+color11 = #ecf583
+color100 = #8a8f00
+
+# dark orange
+color94 = #8b3313
+
+# blue
+color4  = #4dacfc
+color12 = #80b8ed
+# dark blue
+color17 = #16275a
+
+# magenta
+color5  = #ef0ba1
+color13 = #b994d0
+# dark magenta
+color53 = #39165a
+
+# cyan
+color6  = #70e8e7
+color14 = #88bfbd
+#dark cyan
+color23 = #11554a
+
+# white
+color7  = #707880
+color15 = #f3f4e9
+
+[hints]
+#font = Monospace 12
+#foreground = #dcdccc
+#background = #3f3f3f
+#active_foreground = #e68080
+#active_background = #3f3f3f
+padding = 2
+#border = #3f3f3f
+#border_width = 0.5
+#roundness = 2.0
+
+# vim: ft=dosini cms=#%s
+

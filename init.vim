@@ -19,9 +19,8 @@ Plug 'othree/yajs.vim', { 'for': 'javascript' }
 Plug 'jason0x43/vim-js-indent', { 'for': 'javascript' }
 " json highlighting
 Plug 'elzr/vim-json'
-" color schemes
-Plug 'morhetz/gruvbox'
-Plug '~/.config/nvim/pufflehuff'
+" Status bar
+Plug 'itchyny/lightline.vim'
 " gcc to comment out a line, gc to comment out a motion, gc in visual to
 " comment a selection
 Plug 'tpope/vim-commentary'
@@ -54,16 +53,27 @@ Plug 'zchee/deoplete-go', { 'do': 'make'}
 Plug 'racer-rust/vim-racer'
 " Rust syntax highlighting
 Plug 'rust-lang/rust.vim'
+" Nice Unicode
+Plug 'chrisbra/unicode.vim'
+" Colorize color codes
+Plug 'chauncey-garrett/vim-colorizer'
+" color schemes
+Plug 'morhetz/gruvbox'
+Plug '~/.config/nvim/pufflehuff'
 
 call plug#end()
 "===== SETTINGS =====
 "--- COLORS ---
 " Turn on syntax highlighting
 syntax on
+" Use gui colors in terminal
+set termguicolors
 " Let the editor know we prefer using a dark background
 set background=dark
 " Choose the colorscheme
 colorscheme pufflehuff
+" Allow changing the cursor in inline mode
+let $NVIM_TUI_ENABLE_CURSOR_SHAPE = 1
 " Allow 256 colors in terminal. Ignored by neovim.
 set t_Co=256
 
@@ -98,6 +108,7 @@ set lbr
 
 " Show commands as they are intiiated
 set showcmd
+
 
 "--- BEHAVIOR ---
 " Deletes extra spaces when using J to join
@@ -223,8 +234,8 @@ nmap H ^
 nmap L $
 
 " Link merlin (for ocaml syntax checking) to vim in the runtime path.
-let g:opamshare = substitute(system('opam config var share'),'\n$','','''')
-execute "set rtp+=" . g:opamshare . "/merlin/vim"
+" let g:opamshare = substitute(system('opam config var share'),'\n$','','''')
+" execute "set rtp+=" . g:opamshare . "/merlin/vim"
 
 
 "===== CTRLP =====
@@ -285,6 +296,17 @@ endif
 let g:deoplete#omni_patterns.ocaml = '[^. *\t]\.\w*\|\h\w*|#'
 " Bind tab to omnicomplete
 inoremap <S-TAB> <C-x><C-o>
+
+"===== lightline =====
+
+let g:lightline = {
+  \ 'colorscheme': 'pufflehuff',
+  \ 'component': {
+  \   'readonly': '%{&readonly?"":""}',
+  \ },
+  \ 'separator': { 'left': '', 'right': '' },
+  \ 'subseparator': { 'left': '', 'right': '' }
+  \ }
 
 "===== vim-racer =====
 let g:racer_cmd = "racer"

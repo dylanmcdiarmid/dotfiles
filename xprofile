@@ -1,0 +1,2 @@
+# Keyboard repeat rate. xset r DELAY RATE
+xset r rate 150 30
