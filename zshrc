@@ -240,3 +240,4 @@ source ~/.config/zsh/pufflehuff.zsh-theme
 # Node Version Manager setup
 export NVM_DIR=~/.nvm
 . "$NVM_DIR/nvm.sh"
+source ~/.gvm/scripts/gvm
