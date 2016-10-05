@@ -242,3 +242,5 @@ source ~/.config/zsh/pufflehuff.zsh-theme
 export NVM_DIR=~/.nvm
 . "$NVM_DIR/nvm.sh"
 source ~/.gvm/scripts/gvm
+
+export GIT_SSH_COMMAND='ssh -i ~/.ssh/github.key'
