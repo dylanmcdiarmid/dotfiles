@@ -224,7 +224,8 @@ cd ~/dl/playerctl ./autogen.sh && make && sudo make install
 # lm-sensors
 sudo apt -y install lm-sensors
 
-
+# i3
+sudo apt -y install i3 i3blocks
 
 
 # Setup LightDM
