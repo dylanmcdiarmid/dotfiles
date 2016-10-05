@@ -214,7 +214,11 @@ go get github.com/BurntSushi/wingo/wingo-cmd
 
 # lighthouse
 sudo apt install libpango1.0-dev libpth-dev libx11-dev libx11-xcb-dev libcairo2-dev libxcb-xkb-dev libxcb-xinerama0-dev libxcb-randr0-dev
-git clone https://github.com/powerline/fonts ~/dl/lighthouse
+git clone https://github.com/emgram769/lighthouse ~/dl/lighthouse
+# NOTE: I have an issue open about this, but we actually have to patch the makefile, and it's not done in the provisioner yet (hoping it'll be fixed in origin by the time I have to use this script again)
+# To Makefile, add:
+# CFLAGS+=`pkg-config --cflags pangocairo`
+# LDFLAGS+=`pkg-config --libs pangocairo`
 cd ~/dl/lighthouse && make && sudo make install
 
 # playerctl
