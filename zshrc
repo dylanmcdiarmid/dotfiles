@@ -13,6 +13,7 @@ export VISUAL=$EDITOR
 
 # History
 export SAVEHIST=15000
+export HISTSIZE=15000
 export HISTFILE=~/.zsh_history
 
 # Set less options

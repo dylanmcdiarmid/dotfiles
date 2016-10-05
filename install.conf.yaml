@@ -19,3 +19,8 @@
     ~/.config/termite/config: termite
     ~/.config/bspwm/bspwmrc: bspwmrc
     ~/.config/sxhkd/sxhkdrc: sxhkdrc
+    ~/.config/gtk-3.0: gtk-3.0
+    ~/.config/wingo: wingo
+    ~/.config/i3: i3
+    ~/.config/i3blocks: i3blocks
+    ~/.config/lighthouse: lighthouse

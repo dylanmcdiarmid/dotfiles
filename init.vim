@@ -32,8 +32,6 @@ Plug 'junegunn/vim-easy-align'
 Plug 'zenbro/mirror.vim'
 " OCaml indentation
 Plug 'def-lkb/ocp-indent-vim'
-" Syntax checking
-Plug 'scrooloose/syntastic'
 " Surround text with things like quotes or html tags
 Plug 'tpope/vim-surround'
 " Various golang utilities
@@ -42,6 +40,9 @@ Plug 'fatih/vim-go'
 Plug 'wavded/vim-stylus'
 " Pug highlighting
 Plug 'digitaltoad/vim-pug'
+" Snippets
+Plug 'Shougo/neosnippet.vim'
+Plug 'Shougo/neosnippet-snippets'
 " Neovim autocomplete package
 function! DoRemote(arg)
   UpdateRemotePlugins
@@ -253,39 +254,36 @@ vmap <Enter> <Plug>(EasyAlign)
 
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
-
-"===== Syntastic ====
-" Beginner statusline defaults
-" set statusline+=%#warningmsg#
-" set statusline+=%{SyntasticStatuslineFlag()}
-" set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 0
-let g:syntastic_check_on_wq = 0
-let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [],'passive_filetypes': [] }
-let g:syntastic_error_symbol = '✗'
-let g:syntastic_warning_symbol = '⚠'
-let g:syntastic_html_tidy_quiet_messages = { "!level": "warnings" }
-" Play nice with go
-let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
-nnoremap <C-s>e :SyntasticCheck<CR>
-nnoremap <C-s>t :SyntasticToggle<CR>
-" Close the error list
-nnoremap <C-s>c :lclose<CR>
-" Open the error list
-nnoremap <C-s>o :Errors<CR>
-" OCaml
-let g:syntastic_ocaml_checkers = ['merlin']
-
 "===== JSON =====
 " turn off hiding quotes
 let g:vim_json_syntax_conceal=0
 
 "===== vim-go =====
 " Specify the window to output commands in.
-let g:go_list_type = "quickfix"
+" let g:go_list_type = "quickfix"
+" Show type info for the word under cursor
+let g:go_auto_type_info = 1
+" Fix undo/redo history with go-fmt
+let g:go_fmt_experimental = 1
+" Use neosnippets for vim-go snippets
+let g:go_snippet_enging = "neosnippet"
+" Lint on save
+let g:go_metalinter_autosave = 1
+" Open test commands in a new terminal
+let g:go_term_enabled = 1
+
+au FileType go nmap <leader>r <Plug>(go-run)
+au FileType go nmap <leader>b <Plug>(go-build)
+au FileType go nmap <leader>t <Plug>(go-test)
+au FileType go nmap <leader>c <Plug>(go-coverage)
+au FileType go nmap <Leader>ds <Plug>(go-def-split)
+au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
+au FileType go nmap <Leader>dt <Plug>(go-def-tab)
+" Note: go-doc-vertical seems to mess layouts up.
+au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
+au FileType go nmap <Leader>gd <Plug>(go-doc)
+au FileType go nmap <Leader>gb <Plug>(go-doc-browser)
+au FileType go nmap <Leader>s <Plug>(go-implements)
 
 "===== Deoplete =====
 " Use deoplete.
