@@ -189,7 +189,7 @@ vnoremap D "_d
 " Including the clipboard setting here, because if you remove unnamed,
 " you need to set the bindings to M \"0d and MM \"0dd (without the
 " backslashes)
-set clipboard=unnamed
+set clipboard=unnamedplus
 nnoremap M "*d
 vnoremap M "*d
 nnoremap MM "*dd
