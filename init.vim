@@ -178,6 +178,18 @@ vnoremap ; :
 " Shift-q executes the default register (for recorded macros)
 nnoremap Q @q
 
+" Including the clipboard setting here, because if you remove unnamed,
+" you need to set the bindings to M \"0d and MM \"0dd (without the
+" backslashes)
+set clipboard=unnamedplus
+vnoremap M ygvd
+nnoremap MM yydd
+nnoremap c "_c
+vnoremap c "_c
+nnoremap C "_C
+vnoremap C "_C
+nnoremap x "_x
+vnoremap x "_x
 " These are to cancel the default behavior of d, D, c, C
 " to put the text they delete in the default register.
 " Note that this means e.g. "ad won't copy the text into
@@ -186,19 +198,6 @@ nnoremap d "_d
 vnoremap d "_d
 nnoremap D "_d
 vnoremap D "_d
-" Including the clipboard setting here, because if you remove unnamed,
-" you need to set the bindings to M \"0d and MM \"0dd (without the
-" backslashes)
-set clipboard=unnamedplus
-nnoremap M "*d
-vnoremap M "*d
-nnoremap MM "*dd
-nnoremap c "_c
-vnoremap c "_c
-nnoremap C "_C
-vnoremap C "_C
-nnoremap x "_x
-vnoremap x "_x
 
 " Avoid command-line redraw on every entered character 
 " by turning off Arabic 

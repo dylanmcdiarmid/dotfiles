@@ -1,3 +1,13 @@
 # Keyboard repeat rate. xset r DELAY RATE
 xset r rate 180 40
+# Caps-lock to left ctrl, left ctrl to left-win (mod4)
+# See /usr/share/X11/xkb/rules/evdev.lst for all options
 setxkbmap -option ctrl:nocaps
+# setxkbmap -option ctrl:swap_lalt_lctl
+# setxkbmap -option ctrl:swap_lwin_lctl
+# Use `xinput list` to figure out which id your mouse is (id 12 below)
+# The property may just be for logitech
+# Scroll Speed
+xinput set-prop 12 "Evdev Scrolling Distance" 3 1 1
+# Mouse Speed
+xinput set-prop 12 "Device Accel Constant Deceleration" 1.3

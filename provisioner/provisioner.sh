@@ -193,7 +193,7 @@ sudo mkdir -p /lib/terminfo/x; sudo ln -s \
 echo 'export TERMINAL=termite' | sudo tee /etc/profile.d/termite.sh
 
 # ag - text search tool
-sudo apt -y install thesilversearcher-ag
+sudo apt -y install silversearcher-ag
 # httpie - curl alternative
 sudo apt -y install httpie
 
@@ -231,8 +231,41 @@ sudo apt -y install lm-sensors
 # i3
 sudo apt -y install i3 i3blocks
 
+# i3 gaps
+sudo apt -y install libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev libxcb-util0-dev libxcb-icccm4-dev libyajl-dev libstartup-notification0-dev libxcb-randr0-dev libev-dev libxcb-cursor-dev libxcb-xinerama0-dev libxcb-xkb-dev libxkbcommon-dev libxkbcommon-x11-dev xutils-dev
+git clone https://github.com/Airblader/xcb-util-xrm ~/dl/xcb-util-xrm
+cd ~/dl/xcb-util-xrm && git submodule update --init && ./autogen.sh --prefix=/usr
+make && sudo make install
+git clone https://github.com/Airblader/i3 ~/dl/i3-gaps
+cd ~/dl/i3-gaps && make && sudo make install
+
 
 # Setup LightDM
 sudo ln -s $DOTFILES_TARGET_PATH/provisioner/sysfiles/lightdm/60-custom.conf /usr/share/lightdm/lightdm.conf.d/60-custom.conf
 # sudo ln -s $DOTFILES_TARGET_PATH/provisioner/sysfiles/xsessions/wingo.desktop /usr/share/xsessions/wingo.desktop
 # sudo ln -s ~/.gvm/pkgsets/go1.7/global/bin/wingo /usr/local/bin/wingo
+
+# Google Chrome notes
+# Right now Google Chrome is in beta, so I don't want to add the deb file manually yet. To get screen tearing to stop, I had to go to chrome://flags and manually disable Smooth Scrolling
+
+# Unifying Receiver for Logitech Mouse (will show up in systray)
+sudo apt -y install solaar
+sudo gpasswd -a $USER plugdev
+
+# j4-dmenu-desktop
+sudo apt -y install j4-dmenu-desktop
+
+# Compton - compositing
+sudo apt-add-repository -y ppa:richardgv/compton
+sudo apt update
+sudo apt -y install compton
+
+# Nitrogen - wallpaper
+# I'm not including the wallpaper I use in dotfiles, you'll have to set nitrogen up once manually. Just run nitrogen for the gui.
+sudo apt -y install nitrogen
+
+# brightness control
+sudo apt -y install xbacklight
+
+# Firmware Test Suite
+sudo apt -y install fwts

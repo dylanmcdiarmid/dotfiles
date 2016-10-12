@@ -101,8 +101,8 @@ min_width=CPU: 100.00%
 #
 # The battery instance defaults to 0.
 [battery]
-label=BAT
-#label=⚡
+# label=BAT
+label=⚡
 #instance=1
 interval=30
 
@@ -116,10 +116,10 @@ interval=5
 #
 # This displays "ARTIST - SONG" if a music is playing.
 # Supported players are: spotify, vlc, audacious, xmms2, mplayer, and others.
-#[mediaplayer]
-#instance=spotify
-#interval=5
-#signal=10
+[mediaplayer]
+instance=spotify
+interval=5
+signal=10
 
 # OpenVPN support
 #
