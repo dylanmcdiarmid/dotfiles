@@ -236,7 +236,7 @@ source ~/.config/zsh/pufflehuff.zsh-theme
 # zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 
 # VTE setup should be run each time a shell loads, for better terminal compatibility
-source /etc/profile.d/vte-2.91.sh
+# source /etc/profile.d/vte-2.91.sh
 
 # Node Version Manager setup
 export NVM_DIR=~/.nvm
