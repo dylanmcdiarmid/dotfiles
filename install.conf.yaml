@@ -12,6 +12,7 @@
     ~/.gitconfig: gitconfig
     ~/.zshrc: zshrc
     ~/.xprofile: xprofile
+    ~/.xinitrc: xinitrc
     ~/.fonts.conf: fonts.conf
     ~/.config/zsh/pufflehuff.zsh-theme: zsh/pufflehuff.zsh-theme
     ~/.config/nvim/pufflehuff: neovim/pufflehuff
