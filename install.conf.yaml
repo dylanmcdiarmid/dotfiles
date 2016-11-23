@@ -12,6 +12,7 @@
     ~/.gitconfig: gitconfig
     ~/.zshrc: zshrc
     ~/.xprofile: xprofile
+    ~/.Xresources: Xresources
     ~/.xinitrc: xinitrc
     ~/.fonts.conf: fonts.conf
     ~/.config/zsh/pufflehuff.zsh-theme: zsh/pufflehuff.zsh-theme
@@ -26,3 +27,8 @@
     ~/.config/i3blocks: i3blocks
     ~/.config/lighthouse: lighthouse
     ~/.config/compton.conf: compton.conf
+    ~/.config/ranger/commands.py: ranger/commands.py
+    ~/.config/ranger/commands_full.py: ranger/commands_full.py
+    ~/.config/ranger/rc.conf: ranger/rc.conf
+    ~/.config/ranger/rifle.conf: ranger/rifle.conf
+    ~/.config/ranger/scope.sh: ranger/scope.sh

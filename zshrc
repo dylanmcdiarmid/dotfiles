@@ -200,7 +200,8 @@ zplug "Seinh/git-prune"
 
 
 # A nicer cd that integrates with peco for fuzzy finding directories
-export ENHANCD_FILTER=peco
+ENHANCD_FILTER=fzy
+export ENHANCD_FILTER
 zplug "b4b4r07/enhancd", use:init.sh
 
 ## Completions ##
@@ -221,13 +222,13 @@ fi
 zplug load
 
 # Up/Down Arrow Search History
-autoload -U history-search-end
+# autoload -U history-search-end
 
-zle -N history-beginning-search-backward-end history-search-end
-zle -N history-beginning-search-forward-end history-search-end
+# zle -N history-beginning-search-backward-end history-search-end
+# zle -N history-beginning-search-forward-end history-search-end
 
-[[ -n "${key[Up]}" ]] && bindkey "${key[Up]}" history-beginning-search-backward-end
-[[ -n "${key[Down]}" ]] && bindkey "${key[Down]}" history-beginning-search-forward-end 
+# [[ -n "${key[Up]}" ]] && bindkey "${key[Up]}" history-beginning-search-backward-end
+# [[ -n "${key[Down]}" ]] && bindkey "${key[Down]}" history-beginning-search-forward-end 
 # ls colors
 alias ls='ls --color=auto'
 # export LS_COLORS='di=1;34:fi=0:ln=35:pi=5:so=4;31:bd=5:cd=4;33:or=41;37:mi=41;37:ex=35'
@@ -244,3 +245,16 @@ export NVM_DIR=~/.nvm
 source ~/.gvm/scripts/gvm
 
 export GIT_SSH_COMMAND='ssh -i ~/.ssh/github.key'
+
+zplug "zsh-users/zsh-syntax-highlighting", nice:10
+zplug "zsh-users/zsh-history-substring-search"
+zmodload zsh/terminfo
+bindkey "^[[A" history-substring-search-up
+bindkey "^[[B" history-substring-search-down
+if ! zplug check --verbose; then
+    printf "Install? [y/N]: "
+    if read -q; then
+        echo; zplug install
+    fi
+fi
+zplug load

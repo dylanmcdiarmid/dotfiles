@@ -155,3 +155,20 @@ pacaur -S lzop p7zip unace unrar zip --noconfirm
 pacaur -S slack-desktop --noconfirm
 
 pacaur -S ffmpeg spotify --noconfirm
+
+pacaur -S imagemagick --noconfirm
+
+pacaur -S vagrant --noconfirm
+
+pacaur -S virtualbox net-tools vde2 virtualbox-guest-iso --noconfirm
+
+# Fuzzy finder, used with enhancd
+pacaur -S fzy --noconfirm
+
+# N1 install didn't want to work using nvm, so just making a note of it here.
+pacaur -S alsa-lib desktop-file-utils gtk2 gconf libgnome-keyring libnotify libxtst nss python2
+# git clone https://github.com/nylas/N1 && cd N1 && node script/bootstrap && npm run build 
+npm install -g typescript
+
+# ag - a better ack/ack-grep/grep
+pacaur -S the_silver_searcher

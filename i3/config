@@ -13,7 +13,7 @@ set $mod2 Mod1
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 # font pango:monospace 8
-font pango:Hack 11
+font pango:Hack 8
 
 # Workspaces
 set $ws1  1:
@@ -22,7 +22,7 @@ set $ws3  3:
 set $ws4  4:
 set $ws5  5:
 set $ws6  6:
-set $ws7  7: 
+set $ws7  7:
 set $ws8  8: 
 set $ws9  9: 
 set $ws10  10: 
@@ -32,6 +32,17 @@ set $up k
 set $down j
 set $left h
 set $right l
+
+set $bg-color 	         #231f25
+set $inactive-bg-color   #231f25
+set $text-color          #f3f4e9
+set $inactive-text-color #8f8f90
+set $urgent-bg-color     #ef0ba1
+
+client.focused          $bg-color           $bg-color          $text-color          #00ff00
+client.unfocused        $inactive-bg-color $inactive-bg-color $inactive-text-color #00ff00
+client.focused_inactive $inactive-bg-color $inactive-bg-color $inactive-text-color #00ff00
+client.urgent $urgent-bg-color $urgent-bg-color $text-color #00ff00
 
 # class                 border  backgr. text    indicator
 # client.focused          #2E343c #2E343c #ffffff #2E343c
@@ -223,45 +234,50 @@ for_window [class="Chromium" instance="Chromium"] border none
 set $status_bg     #2E343c
 bar {
   position top
-  status_command i3blocks
-  i3bar_command i3bar -t
+  # status_command j4status
+  status_command i3blocks -c ~/.config/i3blocks/config
+  # i3bar_command i3bar -t
   font pango:Hack 9
-  height 20
   colors {
-    separator            #666666
-    statusline           #dddddd
-    background $status_bg
-    focused_workspace #6079C000 #6079C000 #ffffff
-    active_workspace #7080a900 #7080a900 #ffffff
-    inactive_workspace $status_bg $status_bg #FFFFFF
-    urgent_workspace #FF6896 #FF6896 #000000
-    binding_mode       #FF6896 #FF6896 #000000
-	}
+    background $bg-color
+        separator #757575
+    #                  border             background         text
+    focused_workspace  $bg-color          $bg-color          $text-color
+    inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
+    urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
+  }
+  # height 20
+  # colors {
+  #   separator            #666666
+  #   statusline           #dddddd
+  #   background $status_bg
+  #   focused_workspace #6079C000 #6079C000 #ffffff
+  #   active_workspace #7080a900 #7080a900 #ffffff
+  #   inactive_workspace $status_bg $status_bg #FFFFFF
+  #   urgent_workspace #FF6896 #FF6896 #000000
+  #   binding_mode       #FF6896 #FF6896 #000000
+	# }
 }
 
 # Gaps
 smart_gaps on
 smart_borders on
-gaps inner 10
+gaps inner 20
 gaps outer 10
 new_window pixel 0
 # Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id amixer set Master playback 5+ && pkill -RTMIN+1 i3blocks
+bindsym XF86AudioRaiseVolume exec --no-startup-id amixer set Master playback 5+
 # #increase sound volume
-bindsym XF86AudioLowerVolume exec --no-startup-id amixer set Master playback 5- && pkill -RTMIN+1 i3blocks
+bindsym XF86AudioLowerVolume exec --no-startup-id amixer set Master playback 5-
 # #decrease sound volume
-bindsym XF86AudioMute exec --no-startup-id amixer -D pulse set Master 1+ toggle && pkill -RTMIN+1 i3blocks
+bindsym XF86AudioMute exec --no-startup-id amixer -D pulse set Master 1+ toggle
 # mute sound
 #
 # # Sreen brightness controls
-bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 10 && pkill -RTMIN+2 i3blocks
-bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 10 && pkill -RTMIN+2 i3blocks
+bindsym XF86MonBrightnessUp exec --no-startup-id light -A 10
+bindsym XF86MonBrightnessDown exec --no-startup-id light -U 10
 
 # AutoLaunch
 exec --no-startup-id compton
 exec --no-startup-id nitrogen --restore
-exec dunst -config ~/.config/i3/dunstc
-
-
-exec --no-startup-id i3-msg 'workspace $ws1; exec termite; exec termite' 
-exec --no-startup-id i3-msg 'workspace "$ws2" output DP-3; exec google-chrome-beta;'
+exec --no-startup-id dunst -config ~/.config/i3/dunstrc

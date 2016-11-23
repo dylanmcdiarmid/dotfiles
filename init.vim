@@ -50,6 +50,10 @@ endfunction
 Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
 " Deoplete for golang
 Plug 'zchee/deoplete-go', { 'do': 'make'}
+" Deoplete for typescript
+Plug 'mhartington/deoplete-typescript'
+" Typescript Syntax
+Plug 'HerringtonDarkholme/yats.vim'
 " Rust code completion
 Plug 'racer-rust/vim-racer'
 " Rust syntax highlighting
