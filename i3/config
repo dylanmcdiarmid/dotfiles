@@ -6,6 +6,8 @@
 # i3 config file (v4)
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
+#
+# You can use bindcode with any keyboard code if bindsym is giving problems. Check `xev -event keyboard` to get the kecode.
 
 set $mod Mod4
 set $mod2 Mod1
@@ -162,8 +164,6 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym Mod4+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
-bindsym Mod4+Shift+w exec "i3-nagbar -t warning -m 'You pressed the shutdown shortcut. Do you really want to shutdown?' -b 'Yes, shutdown' 'shutdown -h now'"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -216,21 +216,32 @@ for_window [class="Chromium" instance="Chromium"] border none
 
 # Shutdown, Reboot, Lock Screen, and Logout 
 
-# set $power_mode "power"
-# bindsym $mod+Shift+q      mode $power_mode
-# mode $power_mode {
-#     bindsym p        exec systemctl poweroff
-#     bindsym r         exec systemctl reboot 
-#     bindsym l         exec i3lock -i ~/Pictures/cube.png , mode "default"
-#     bindsym q        exec --no-startup-id i3-msg exit, mode "default"
-#     bindsym h        exec systemctl hibernate 
-#     bindsym s        exec systemctl hybrid-sleep 
+set $power_mode "power"
+bindsym $mod+Shift+p      mode $power_mode
+mode $power_mode {
+  bindsym p        exec "i3-nagbar -t warning -m 'You pressed the shutdown shortcut. Do you really want to shutdown?' -b 'Yes, shutdown' 'systemctl poweroff'"; mode "default"
+  bindsym r        exec "i3-nagbar -t warning -m 'You pressed the reboot shortcut. Do you really want to reboot?' -b 'Yes, reboot' 'systemctl reboot'"; mode "default"
+  bindsym l        exec --no-startup-id playerctl stop; exec i3lock -t -i ~/Pictures/wild_olivia.png; mode "default"
+  bindsym q        exec --no-startup-id i3-msg exit; mode "default"
+  bindsym h        mode "default"; exec systemctl hibernate
+  # This crashed the laptop after it woke up. Better troubleshoot before using again.
+  # bindsym s        mode "default"; exec systemctl hybrid-sleep 
 
+  bindsym Return    mode "default"
+  bindsym Escape    mode "default"
+}
 
-#     bindsym Return    mode "default"
-#     bindsym Escape    mode "default"
-#
-# }
+set $music_mode "music"
+bindsym $mod+m mode $music_mode
+mode $music_mode {
+  bindsym p         exec --no-startup-id playerctl play-pause; mode "default"
+  bindsym .         exec --no-startup-id playerctl next; mode "default"
+  bindcode 59         exec --no-startup-id playerctl previous; mode "default"
+  bindsym >         exec --no-startup-id playerctl position; mode "default"
+  bindsym Return    mode "default"
+  bindsym Escape    mode "default"
+}
+
 set $status_bg     #2E343c
 bar {
   position top
@@ -270,12 +281,14 @@ bindsym XF86AudioRaiseVolume exec --no-startup-id amixer set Master playback 5+
 # #increase sound volume
 bindsym XF86AudioLowerVolume exec --no-startup-id amixer set Master playback 5-
 # #decrease sound volume
-bindsym XF86AudioMute exec --no-startup-id amixer -D pulse set Master 1+ toggle
 # mute sound
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 1 toggle
 #
 # # Sreen brightness controls
 bindsym XF86MonBrightnessUp exec --no-startup-id light -A 10
 bindsym XF86MonBrightnessDown exec --no-startup-id light -U 10
+
+bindsym $mod+c exec --no-startup-id xdotool click --repeat 60 --delay 30 1
 
 # AutoLaunch
 exec --no-startup-id compton

@@ -7,6 +7,7 @@
     - mkdir -p ~/.config/zsh
     - mkdir -p ~/.config/bspwm
     - mkdir -p ~/.config/sxhkd
+    - mkdir -p ~/.config/Code/User
 
 - link:
     ~/.gitconfig: gitconfig
@@ -32,3 +33,4 @@
     ~/.config/ranger/rc.conf: ranger/rc.conf
     ~/.config/ranger/rifle.conf: ranger/rifle.conf
     ~/.config/ranger/scope.sh: ranger/scope.sh
+    ~/.config/Code/User/settings.js: vscode/settings.json

@@ -171,4 +171,6 @@ pacaur -S alsa-lib desktop-file-utils gtk2 gconf libgnome-keyring libnotify libx
 npm install -g typescript
 
 # ag - a better ack/ack-grep/grep
-pacaur -S the_silver_searcher
+pacaur -S the_silver_searcher --noconfirm
+
+pacaur -S imagemagick --noconfirm
