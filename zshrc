@@ -242,15 +242,22 @@ source ~/.config/zsh/pufflehuff.zsh-theme
 # Node Version Manager setup
 export NVM_DIR=~/.nvm
 . "$NVM_DIR/nvm.sh"
-source ~/.gvm/scripts/gvm
+# source ~/.gvm/scripts/gvm
 
 export GIT_SSH_COMMAND='ssh -i ~/.ssh/github.key'
 
-zplug "zsh-users/zsh-syntax-highlighting", nice:10
+autoload -U up-line-or-beginning-search
+autoload -U down-line-or-beginning-search
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
+[[ -n "${key[Up]}" ]] && bindkey "${key[Up]}" up-line-or-beginning-search
+[[ -n "${key[Down]}" ]] && bindkey "${key[Down]}" down-line-or-beginning-search
+
+zplug "zsh-users/zsh-syntax-highlighting"
 zplug "zsh-users/zsh-history-substring-search"
 zmodload zsh/terminfo
-bindkey "^[[A" history-substring-search-up
-bindkey "^[[B" history-substring-search-down
+# bindkey "\e[A" history-substring-search-up
+# bindkey "\e[B" history-substring-search-down
 if ! zplug check --verbose; then
     printf "Install? [y/N]: "
     if read -q; then

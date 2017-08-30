@@ -5,32 +5,33 @@
     - if [[ ! -e ~/.config/nvim/autoload/plug.vim ]]; then curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim; fi
     - mkdir -p ~/.config/termite
     - mkdir -p ~/.config/zsh
-    - mkdir -p ~/.config/bspwm
-    - mkdir -p ~/.config/sxhkd
+    # - mkdir -p ~/.config/bspwm
+    # - mkdir -p ~/.config/sxhkd
     - mkdir -p ~/.config/Code/User
 
 - link:
     ~/.gitconfig: gitconfig
     ~/.zshrc: zshrc
-    ~/.xprofile: xprofile
-    ~/.Xresources: Xresources
-    ~/.xinitrc: xinitrc
-    ~/.fonts.conf: fonts.conf
+    # ~/.xprofile: xprofile
+    # ~/.Xresources: Xresources
+    # ~/.xinitrc: xinitrc
+    # ~/.fonts.conf: fonts.conf
     ~/.config/zsh/pufflehuff.zsh-theme: zsh/pufflehuff.zsh-theme
     ~/.config/nvim/pufflehuff: neovim/pufflehuff
     ~/.config/nvim/init.vim: init.vim
     ~/.config/termite/config: termite
-    ~/.config/bspwm/bspwmrc: bspwmrc
-    ~/.config/sxhkd/sxhkdrc: sxhkdrc
-    ~/.config/gtk-3.0: gtk-3.0
-    ~/.config/wingo: wingo
-    ~/.config/i3: i3
-    ~/.config/i3blocks: i3blocks
-    ~/.config/lighthouse: lighthouse
-    ~/.config/compton.conf: compton.conf
+    # ~/.config/bspwm/bspwmrc: bspwmrc
+    # ~/.config/sxhkd/sxhkdrc: sxhkdrc
+    # ~/.config/gtk-3.0: gtk-3.0
+    # ~/.config/wingo: wingo
+    # ~/.config/i3: i3
+    # ~/.config/i3blocks: i3blocks
+    # ~/.config/lighthouse: lighthouse
+    # ~/.config/compton.conf: compton.conf
     ~/.config/ranger/commands.py: ranger/commands.py
     ~/.config/ranger/commands_full.py: ranger/commands_full.py
     ~/.config/ranger/rc.conf: ranger/rc.conf
     ~/.config/ranger/rifle.conf: ranger/rifle.conf
     ~/.config/ranger/scope.sh: ranger/scope.sh
-    ~/.config/Code/User/settings.js: vscode/settings.json
+    ~/.config/Code/User/settings.json: vscode/settings.json
+    ~/.config/Code/User/keybindings.json: vscode/keybindings.json

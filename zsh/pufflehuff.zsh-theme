@@ -45,9 +45,11 @@ prompt_segment() {
   CURRENT_BG=$1
   [[ -n $3 ]] && echo -n $3
 }
-right_arrow() {
-  echo -n "%f%b%k%F{$1}%f"
-}
+# right_arrow() {
+#   echo -n "%f%b%k%F{$1}%f"
+# }
+
+right_arrow() {}
 # Begin a segment for the RPROMPT
 # Takes two arguments, background and foreground. Both can be omitted,
 # rendering default background/foreground.

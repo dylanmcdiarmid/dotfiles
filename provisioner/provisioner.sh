@@ -62,12 +62,12 @@ fi
 ### Shell ###
 # zplug (zsh)
 sudo apt install zsh zsh-doc
-curl -sL zplug.sh/installer | zsh
+curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh| zsh
 # Change default shell, this may prompt for a password
 chsh -s /bin/zsh
 # zplug update --self
 # Ubuntu doesn't set XDG_CONFIG_HOME by default
-# echo 'export XDG_CONFIG_HOME="$HOME/.config"' | sudo tee /etc/profile.d/xdg.sh
+echo 'export XDG_CONFIG_HOME="$HOME/.config"' | sudo tee /etc/profile.d/xdg.sh
 ### Languages ###
 ## Node ##
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.6/install.sh | bash

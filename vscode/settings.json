@@ -1,3 +1,107 @@
+// Place your settings in this file to overwrite the default settings
 {
-    "editor.tabWidth": 2
+    "files.eol": "\n",
+    "css.validate": false,
+    "editor.fontSize": 16,
+    "window.zoomLevel": 0,
+    "editor.fontFamily": "Fira Code",
+    "editor.fontLigatures": true,
+    "editor.tabSize": 2,
+    "editor.formatOnSave": false,
+    "vim.enableNeovim": true,
+    "rust.rls": {
+        "executable": "rustup",
+        "args": [
+            "run",
+            "nightly",
+            "rls"
+        ],
+        "useRustfmt": true
+    },
+    "editor.autoClosingBrackets": false,
+    "typescript.check.tscVersion": false,
+    "vim.leader": "<space>",
+    "vim.hlsearch": true,
+    "vim.history": 200,
+    "vim.otherModesKeyBindingsNonRecursive": [
+        {
+            "before": [
+                "H"
+            ],
+            "after": [
+                "^"
+            ]
+        },
+        {
+            "before": [
+                "L"
+            ],
+            "after": [
+                "$"
+            ]
+        },
+        {
+            "before": [
+                "M"
+            ],
+            "after": [
+                "`"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "f"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "editor.action.formatSelection",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "t"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "editor.action.showHover",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "<C-u>"
+            ],
+            "after": ["6", "0", "k"]
+        },
+        {
+            "before": [
+                "<C-d>"
+            ],
+            "after": ["6", "0", "j"]
+        }
+    ],
+    "editor.wordWrap": "on",
+    "workbench.colorTheme": "Oceanic Next (Sublime)",
+    "workbench.iconTheme": "file-icons",
+    "cSpell.enabledLanguageIds": [
+        "markdown"
+    ],
+    "editor.minimap.enabled": false,
+    "git.autofetch": false,
+    "vim.disableAnnoyingNeovimMessage": true,
+    "terminal.integrated.shell.windows": "C:\\Windows\\Sysnative\\WindowsPowerShell\\v1.0\\powershell.exe",
+    "rust.mode": "rls",
+    "rust.rustup": {
+        "toolchain": "nightly-x86_64-pc-windows-msvc"
+    },
+    "files.associations": {
+        "zshrc": "shellscript"
+    }
 }
