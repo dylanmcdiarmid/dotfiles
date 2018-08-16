@@ -8,22 +8,31 @@
     "editor.fontLigatures": true,
     "editor.tabSize": 2,
     "editor.formatOnSave": false,
+    "editor.codeLens": false,
+    "FSharp.lineLens.enabled": "always",
+    "vim.sneak": true,
+    "vim.sneakUseIgnorecaseAndSmartcase": true,
     "vim.enableNeovim": true,
-    "rust.rls": {
-        "executable": "rustup",
-        "args": [
-            "run",
-            "nightly",
-            "rls"
-        ],
-        "useRustfmt": true
-    },
+    // "rust.rls": {
+    //     "executable": "rustup",
+    //     "args": [
+    //         "run",
+    //         "nightly",
+    //         "rls"
+    //     ],
+    //     "useRustfmt": true
+    // },
     "editor.autoClosingBrackets": false,
-    "typescript.check.tscVersion": false,
     "vim.leader": "<space>",
     "vim.hlsearch": true,
     "vim.history": 200,
-    "vim.otherModesKeyBindingsNonRecursive": [
+    "vim.insertModeKeyBindings": [
+        {
+            "before": ["j", "k"],
+            "after": ["<Esc>"]
+        }
+    ],
+    "vim.normalModeKeyBindingsNonRecursive": [
         {
             "before": [
                 "H"
@@ -50,6 +59,19 @@
         },
         {
             "before": [
+                "leader",
+                "c"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "jupyter.execCurrentCell",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
                 "<leader>",
                 "f"
             ],
@@ -57,6 +79,45 @@
             "commands": [
                 {
                     "command": "editor.action.formatSelection",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "q"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "esQuotes.transformToTemplateString",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "n"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "esQuotes.transformToNormalString",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "s"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "esQuotes.transformBetweenSingleDoubleQuotes",
                     "args": []
                 }
             ]
@@ -76,6 +137,19 @@
         },
         {
             "before": [
+                "<leader>",
+                "k"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "workbench.action.keepEditor",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
                 "<C-u>"
             ],
             "after": ["6", "0", "k"]
@@ -85,23 +159,133 @@
                 "<C-d>"
             ],
             "after": ["6", "0", "j"]
+        },
+        {
+            "before": [
+                "<C-e>"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "idris.typecheck",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "leader",
+                "e"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "idris.type-of",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "leader",
+                "d"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "idris.docs-for",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "leader",
+                "f"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "idris.print-definition",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "leader",
+                "r"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "idris.start-refresh-repl",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "leader",
+                "s"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "idris.send-selection-repl",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": ["u"],
+            "after": [],
+            "commands": [
+                {
+                    "command": "undo",
+                    "args": []
+                }
+    
+            ]
+        },
+        {
+            "before": ["<C-r>"],
+            "after": [],
+            "commands": [
+                {
+                    "command": "redo",
+                    "args": []
+                }
+            ]
         }
     ],
     "editor.wordWrap": "on",
-    "workbench.colorTheme": "Oceanic Next (Sublime)",
+    "workbench.colorTheme": "Dracula",
     "workbench.iconTheme": "file-icons",
-    "cSpell.enabledLanguageIds": [
-        "markdown"
-    ],
+    // "cSpell.enabledLanguageIds": [
+    //     "markdown"
+    // ],
     "editor.minimap.enabled": false,
     "git.autofetch": false,
+    "git.enabled": false,
     "vim.disableAnnoyingNeovimMessage": true,
     "terminal.integrated.shell.windows": "C:\\Windows\\Sysnative\\WindowsPowerShell\\v1.0\\powershell.exe",
-    "rust.mode": "rls",
-    "rust.rustup": {
-        "toolchain": "nightly-x86_64-pc-windows-msvc"
-    },
     "files.associations": {
         "zshrc": "shellscript"
-    }
+    },
+    "extensions.ignoreRecommendations": false,
+    "idris.showOutputWhenTypechecking": true,
+    "vim.disableExtension": false,
+    "esQuotes.defaultQuote": "'",
+    "typescript.autoImportSuggestions.enabled": false,
+    "jupyter.appendResults": true,
+    "rust-client.revealOutputChannelOn": "info",
+    "rust.show_warnings": true,
+    "rust.all_features": true,
+    "rust-client.logToFile": false,
+    "FSharp.fsiFilePath": "fsharpi",
+    // "rust.mode": "rls",
+    // "rust.rustup": {
+    //     "toolchain": "nightly-x86_64-unknown-linux-gnu"
+    // }
 }
